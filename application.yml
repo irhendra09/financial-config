@@ -1,23 +1,23 @@
 server:
-  port: 8080 # Port default untuk semua layanan (akan di-override oleh layanan spesifik)
+  port: 8080
 
 spring:
   config:
-    import: "optional:configtree:/etc/config/" # Untuk Kubernetes / ConfigMap
+    import: "optional:configtree:/etc/config/"
   zipkin:
-    base-url: http://zipkin-server:9411 # URL Zipkin di Docker Compose
+    base-url: http://zipkin-server:9411
   sleuth:
     sampler:
-      probability: 1.0 # Sampling rate untuk tracing (1.0 = semua trace)
+      probability: 1.0
   jpa:
     hibernate:
-      ddl-auto: update # Untuk pengembangan, JANGAN gunakan di produksi
+      ddl-auto: update
   data:
     mongodb:
       host: mongodb-db
       port: 27017
-      database: financialdb # Default untuk MongoDB
+      database: financialdb
   kafka:
-    bootstrap-servers: kafka:29092 # Kafka di Docker Compose
+    bootstrap-servers: kafka:29092
     properties:
-      schema.registry.url: http://schema-registry:8081 # Jika menggunakan Schema Registry (nanti)
+      schema.registry.url: http://schema-registry:8081
